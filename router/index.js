@@ -2,9 +2,12 @@
 const router = require('express').Router();
 
 router.get('/'); // halaman home untuk registrasi/login
+router.get('/logout'); // halaman home untuk logout
 
-router.get('/user-profile'); // halaman untuk edit user profile
-router.post('/user-profile'); 
+router.get('/user-profile'); // halaman untuk menampilkan user profile
+
+router.get('/user-profile/edit'); // halaman untuk edit user profile
+router.post('/user-profile/edit'); 
 
 router.get('/product'); // halaman list product
 
@@ -19,7 +22,6 @@ router.post('/product/edit/:id');
 router.get('/order/:idProduct'); // halaman untuk melihat barang apa saja yang ingin di beli
 
 router.get('/invoice/:id'); // halaman untuk melihat invoice
-router.post('/invoice/:id');
 
 router.get('/delete/:id'); //untuk menghapus product
 
