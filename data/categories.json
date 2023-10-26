@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1",
+        "name": "Sedan"
+    },
+    {
+        "id": "2",
+        "name": "Suv"
+    },
+    {
+        "id": "3",
+        "name": "Mpv"
+    },
+    {
+        "id": "4",
+        "name": "Sport"
+    }
+]

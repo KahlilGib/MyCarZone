@@ -1,0 +1,38 @@
+[
+    {
+        "name": "BMW E39",
+        "description": "E39 tahun 1999 dengan kondisi sangat prima, siap luar kota",
+        "fuelType": "Bensin",
+        "transmissionType": "Automatic",
+        "price": "85000000",
+        "carImage": "https://cdn.bimmer.id/wp-content/uploads/2019/04/BMWE39.jpg",
+        "CategoryId": "1"
+    },
+    {
+        "name": "Mazda RX-8",
+        "description": "Mazda RX-8 tahun 2007 bensin manual superb condition",
+        "fuelType": "Bensin",
+        "transmissionType": "Manual",
+        "price": "240000000",
+        "carImage": "https://imgx.gridoto.com/crop/0x176:1080x1012/700x465/photo/2021/09/14/241828707_551898035870237_724214-20210914124117.jpg",
+        "CategoryId": "4"
+    },
+    {
+        "name": "Toyota Fortuner",
+        "description": "Toyota fortuner VNT tahun 2015 kondisi oke ",
+        "fuelType": "Diesel",
+        "transmissionType": "Automatic",
+        "price": "285000000",
+        "carImage": "https://www.mobbi.id/medias/-.D.S.C.6.0.3.5-784.jpg?context=bWFzdGVyfHJvb3R8Njg2NDN8aW1hZ2UvanBlZ3xoZWUvaDI3Lzg4MzM4Mjk1MzU3NzQuanBnfGEyMzljYjgwZmYwODAzMDMwNDgyZDI2YjVhOTI0NjgzNDE0YjI0OTMzMDNhMjc4ZDE4YWMwNmRlODlhYzZjZWE",
+        "CategoryId": "2"
+    },
+    {
+        "name": "Wuling Confero",
+        "description": "Wuling confero tahun 2020 matic, mesin aman, kondisi superb",
+        "fuelType": "Bensin",
+        "transmissionType": "Automaric",
+        "price": "160000000",
+        "carImage": "https://imgx.gridoto.com/crop/0x0:0x0/750x500/filters:watermark(file/2017/gridoto/img/watermark.png,5,5,60)/photo/2021/02/24/wuling-ejpg-20210224085843.jpg",
+        "CategoryId": "3"
+    }
+]
