@@ -220,13 +220,68 @@ class Controllers {
     static async invoice(req, res) {
         const currentDate = new Date();
         const formattedDate = currentDate.toLocaleDateString('en-US');
+        const invoiceNumber = `INV-${currentDate.getFullYear()}${currentDate.getMonth() + 1}${currentDate.getDate()}-${currentDate.getHours()}${currentDate.getMinutes()}${currentDate.getSeconds()}`;
         try {
             const productId = req.params.id;
             const product = await Product.findByPk(productId, {
                 include: Category
             });
 
-            res.render('invoice', { product, formatToRupiah, formattedDate });
+            res.render('invoice', { product, formatToRupiah, formattedDate, invoiceNumber });
+        } catch (error) {
+            console.log(error);
+            res.send(error.message);
+        }
+    }
+
+    static async generateInvoice(req, res) {
+        const currentDate = new Date();
+        const invoiceNumber = `INV-${currentDate.getFullYear()}${currentDate.getMonth() + 1}${currentDate.getDate()}-${currentDate.getHours()}${currentDate.getMinutes()}${currentDate.getSeconds()}`;
+        const formattedDate = currentDate.toLocaleDateString('en-US');
+        try {
+            const productId = req.params.id;
+            const product = await Product.findByPk(productId, {
+                include: Category
+            });
+            
+            const invoiceData = {
+                shipping: {
+                    name: "Micheal",
+                    address: "1234 Main Street",
+                    city: "Dubai",
+                    state: "Dubai",
+                    country: "UAE",
+                    postal_code: 94111
+                },
+                items: [
+                    {
+                        item: "mobil",
+                        description: "Product Description",
+                        quantity: 1,
+                        price: "product.price",
+                    },
+                ],
+                subtotal: 156,
+                total: 156,
+                order_number: 1234222,
+                header: {
+                    company_name: "Nice Invoice",
+                    company_logo: "",
+                    company_address: "Nice Invoice. 123 William Street 1th Floor New York, NY 123456"
+                },
+                footer: {
+                    text: "This is footer - you can add any text here"
+                },
+                currency_symbol: "$",
+                date: {
+                    billing_date: "08 August 2020",
+                    due_date: "10 September 2020",
+                }
+            };
+
+            niceInvoice(invoiceData, 'your-invoice-name.pdf');
+
+            res.redirect('product', { product, formatToRupiah, formattedDate, invoiceNumber, invoice });
         } catch (error) {
             console.log(error);
             res.send(error.message);

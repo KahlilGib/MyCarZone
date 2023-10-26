@@ -29,6 +29,8 @@ router.get('/order/:id', Controllers.order); // halaman untuk melihat barang apa
 
 router.get('/invoice/:id', Controllers.invoice); // halaman untuk melihat invoice
 
+router.get('/download-invoice/:invoiceNumber', Controllers.generateInvoice);
+
 router.get('/product/delete/:id', Controllers.deleteProduct); //untuk menghapus product
 
 module.exports = router;

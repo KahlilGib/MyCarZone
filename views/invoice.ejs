@@ -11,46 +11,45 @@
     <%- include('partials/_navbarCustomer') %> <br/>
 
     <div class="card" >
-        <div class="card-body mx-4">
-          <div class="container">
-            <p class="my-5 mx-5" style="font-size: 30px;">Thank for your purchase</p>
-            <div class="row">
-              <ul class="list-unstyled">
-                <li class="text-black">Name :</li>
-                <li class="text-muted mt-1"><span class="text-black">Invoice :</span> #12345</li>
-                <li class="text-black mt-1">Date : <%= formattedDate %></li>
-                </ul>
-                <hr>
-                <div class="col-xl-10">
-                  <p>Name Product</p>
-                </div>
-                <div class="col-xl-2">
-                  <p class="float-end"><%= product.name %>
-                  </p>
-                </div>
-                <hr>
-            </div>
-            <div class="row">
+      <div class="card-body mx-4">
+        <div class="container">
+          <p class="my-5 mx-5" style="font-size: 30px;">Thank for your purchase</p>
+          <div class="row">
+            <ul class="list-unstyled">
+              <li class="text-black">Name :</li>
+              <li class="text-muted mt-1"><span class="text-black">Invoice :</span> <%= invoiceNumber %></li>
+              <li class="text-black mt-1">Date : <%= formattedDate %></li>
+              </ul>
+              <hr>
               <div class="col-xl-10">
-                <p>Price</p>
+                <p>Name Product</p>
               </div>
               <div class="col-xl-2">
-                <p class="float-end"><%= formatToRupiah(product.price) %>
+                <p class="float-end"><%= product.name %>
                 </p>
               </div>
               <hr>
+          </div>
+          <div class="row">
+            <div class="col-xl-10">
+              <p>Price</p>
             </div>
-            <div class="row text-black">
-      
-              <div class="col-xl-12">
-                <p class="float-end fw-bold">Total: <%= formatToRupiah(product.price) %>
-                </p>
+            <div class="col-xl-2">
+              <p class="float-end"><%= formatToRupiah(product.price) %>
+              </p>
+            </div>
+            <hr>
+          </div>
+
+          <div class="row text-black">
+                  <div class="col-xl-12">
+                      <p class="float-end fw-bold">Total: <%= formatToRupiah(product.price) %></p>
+                  </div>
+                  <hr style="border: 2px solid black;">
               </div>
-              <hr style="border: 2px solid black;">
-            </div>
-            <div class="text-center" style="margin-top: 90px;">
-              <a><u class="text-info">Print</u></a>
-            </div>
+              <div class="text-center" style="margin-top: 90px;">
+                <a href="/download-invoice/<%= invoiceNumber %>" class="text-info"><u>Download Invoice</u></a>
+              </div>
       
           </div>
         </div>
