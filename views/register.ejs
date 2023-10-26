@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>login</title>
+    <title>Form Pendaftaran</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,14 +53,7 @@
     </style>
 </head>
 <body>
-    <h2>LOGIN</h2>
-
-    <div style="color: red;">
-      <% if (errors) { %>
-          <p><%= errors %></p>
-      <% } %>
-  </div> 
-  
+    <h2>REGISTER</h2>
     <form action="" method="post">
 
         <label for="email">Email:</label>
@@ -69,9 +62,16 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
 
-        <input type="submit" value="Login"> <br> <br>
+        <label>Role:</label><br>
+        <input type="radio" id="seller" name="role" value="Seller" required>
+        <label for="seller">Seller</label><br>
 
-        <label for="toRegister">Belum punya akun? <a href="/register">Daftar</a></label>
+        <input type="radio" id="customer" name="role" value="Customer" required>
+        <label for="customer">Customer</label><br><br>
+
+        <input type="submit" value="Daftar"> <br> <br>
+
+        <label for="toRegister">Sudah punya akun? <a href="/">Login</a></label>
     </form>
 </body>
 </html>

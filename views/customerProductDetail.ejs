@@ -8,9 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </head>
   <body>
-    <%- include('partials/_navbar') %> <br/>
+    <%- include('partials/_navbarCustomer') %> <br/>
 
-    <div><a href="/product" class="btn btn-primary">Back</a></div> <br/>
+    <div><a href="/customerProduct" class="btn btn-primary">Back</a></div> <br/>
     <div style="overflow:auto">
       <img style= "float: left; padding-right: 20px; height: 200px;"src=<%= product.carImage %>>
       <div>Car : <%= product.name %> </div>
@@ -18,7 +18,7 @@
       <div>Transmission Type : <%= product.transmissionType %></div>
       <div>Price : <%= product.price %></div> <br>
       <div style="white-space: pre-line;  margin-top: 10px;"><%= product.description %></div> <br>
-      <div><a href="/product/edit/<%= product.id %>" class="btn btn-primary">EDIT</a></div>
+      <div><a href="/order/<%= product.id %>" class="btn btn-primary">Buy This Car!</a></div>
     </div>
 
 </body>
