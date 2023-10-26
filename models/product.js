@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const helper = require('../helpers');
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     /**
@@ -14,6 +15,20 @@ module.exports = (sequelize, DataTypes) => {
       Product.belongsToMany(models.User, { through: models.Order });
       // define association here
     }
+
+    get formattedValuation() {
+      if(this.price < 500000000){
+        return helper.toRupiah(this.price);
+      } else {
+        return "Call Seller For Price"
+      }
+      
+    }
+
+    get justPrice() {
+      return helper.toRupiah(this.price);
+    }
+
   }
   Product.init({
     name: DataTypes.STRING,
@@ -21,11 +36,13 @@ module.exports = (sequelize, DataTypes) => {
     fuelType: DataTypes.STRING,
     transmissionType: DataTypes.STRING,
     carImage: DataTypes.STRING,
-    price: DataTypes.INTEGER,
+    price: {
+      type: DataTypes.INTEGER,
+    },
     CategoryId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Product',
+    modelName: 'Product'
   });
   return Product;
 };

@@ -35,7 +35,7 @@
               <p>Price</p>
             </div>
             <div class="col-xl-2">
-              <p class="float-end"><%= formatToRupiah(product.price) %>
+              <p class="float-end"><%= product.justPrice %>
               </p>
             </div>
             <hr>
@@ -43,7 +43,7 @@
 
           <div class="row text-black">
                   <div class="col-xl-12">
-                      <p class="float-end fw-bold">Total: <%= formatToRupiah(product.price) %></p>
+                      <p class="float-end fw-bold">Total: <%= product.justPrice %></p>
                   </div>
                   <hr style="border: 2px solid black;">
               </div>

@@ -16,7 +16,7 @@
       <div>Car : <%= product.name %> </div>
       <div>Fuel Type : <%= product.fuelType %></div>
       <div>Transmission Type : <%= product.transmissionType %></div>
-      <div>Price : <%= product.price %></div> <br>
+      <div>Price : <%= product.formattedValuation %></div> <br>
       <div style="white-space: pre-line;  margin-top: 10px;"><%= product.description %></div> <br>
       <div><a href="/order/<%= product.id %>" class="btn btn-primary">Buy This Car!</a></div>
     </div>

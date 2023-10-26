@@ -2,7 +2,8 @@ const { Category, Order, Product, User, UserProfile } = require('../models');
 const { formatToRupiah } = require('../helper');
 const { Op } = require('sequelize');
 const niceInvoice = require("nice-invoice");
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+
 
 
 class Controllers {
