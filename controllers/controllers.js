@@ -1,6 +1,7 @@
 const { Category, Order, Product, User, UserProfile } = require('../models');
 const { formatToRupiah } = require('../helper');
 const { Op } = require('sequelize');
+const niceInvoice = require("nice-invoice");
 
 
 class Controllers {
@@ -53,7 +54,7 @@ class Controllers {
     static async addProductForm(req, res) {
         try {
             const categories = await Category.findAll()
-            res.render("addProduct", {categories});
+            res.render("addProduct", { categories });
         } catch (error) {
             console.log(error);
             res.send(error.message);
@@ -61,37 +62,36 @@ class Controllers {
     }
 
     static async createProduct(req, res) {
-        const {name, price, fuelType, transmissionType, carImage, description, CategoryId } = req.body;
+        const { name, price, fuelType, transmissionType, carImage, description, CategoryId } = req.body;
         const data = {
-            name : name,
-            fuelType : fuelType,
-            price : +price,
-            transmissionType : transmissionType,
-            carImage : carImage,
-            description : description,
-            CategoryId : CategoryId,
+            name: name,
+            fuelType: fuelType,
+            price: +price,
+            transmissionType: transmissionType,
+            carImage: carImage,
+            description: description,
+            CategoryId: CategoryId,
 
         }
         try {
-         console.log(req.body)
-         await Product.create(data)
-         res.redirect("/product")
+            console.log(req.body)
+            await Product.create(data)
+            res.redirect("/product")
         } catch (error) {
             console.log(error);
             res.send(error.message);
         }
     }
 
-    static async showEditProductForm (req, res) {
-          try {
-
+    static async showEditProductForm(req, res) {
+        try {
             const categories = await Category.findAll()
             const products = await Product.findByPk(req.params.id, {
-                include : Category
+                include: Category
             });
             // console.log( "ini categories >>>",categories)
 
-            res.render('editProduct', {products, categories});
+            res.render('editProduct', { products, categories });
 
         } catch (error) {
             console.log(error);
@@ -100,12 +100,12 @@ class Controllers {
     }
 
     static async updateProduct(req, res) {
-        const {name, price, fuelType, transmissionType, carImage, description, CategoryId} = req.body;
+        const { name, price, fuelType, transmissionType, carImage, description, CategoryId } = req.body;
 
         try {
-            await Product.update({name, price : +price, fuelType, transmissionType, carImage, description, CategoryId}, {
-                where : {
-                    id : req.params.id
+            await Product.update({ name, price: +price, fuelType, transmissionType, carImage, description, CategoryId }, {
+                where: {
+                    id: req.params.id
                 }
             });
 
@@ -119,8 +119,8 @@ class Controllers {
     static async deleteProduct(req, res) {
         try {
             await Product.destroy({
-                where : {
-                    id : req.params.id
+                where: {
+                    id: req.params.id
                 }
             });
 
@@ -131,7 +131,35 @@ class Controllers {
         }
     }
 
+    static async order(req, res) {
+        try {
+            const productId = req.params.id;
+            const product = await Product.findByPk(productId, {
+                include: Category
+            });
 
+            res.render('order', { product, formatToRupiah });
+        } catch (error) {
+            console.log(error);
+            res.send(error.message);
+        }
+    }
+
+    static async invoice(req, res) {
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString('en-US');
+        try {
+            const productId = req.params.id;
+            const product = await Product.findByPk(productId, {
+                include: Category
+            });
+
+            res.render('invoice', { product, formatToRupiah, formattedDate });
+        } catch (error) {
+            console.log(error);
+            res.send(error.message);
+        }
+    }
 }
 
 module.exports = Controllers

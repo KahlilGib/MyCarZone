@@ -5,4 +5,5 @@ function formatToRupiah(number) {
     }).format(number);
 }
 
+
 module.exports = {formatToRupiah}

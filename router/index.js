@@ -1,5 +1,4 @@
 const Controllers = require('../controllers/controllers');
-
 const router = require('express').Router();
 
 router.get('/', Controllers.home); // halaman home untuk registrasi/login
@@ -20,9 +19,9 @@ router.get('/product/:id', Controllers.productDetail); // halaman detail product
 router.get('/product/edit/:id', Controllers.showEditProductForm); // menampilkan form untuk mengedit product
 router.post('/product/edit/:id', Controllers.updateProduct); 
 
-router.get('/order/:idProduct'); // halaman untuk melihat barang apa saja yang ingin di beli
+router.get('/order/:id', Controllers.order); // halaman untuk melihat barang apa saja yang ingin di beli
 
-router.get('/invoice/:id'); // halaman untuk melihat invoice
+router.get('/invoice/:id', Controllers.invoice); // halaman untuk melihat invoice
 
 router.get('/product/delete/:id', Controllers.deleteProduct); //untuk menghapus product
 

@@ -9,6 +9,7 @@
   </head>
   <body>
     <%- include('partials/_navbar') %> <br/>
+
     <div><a href="/product" class="btn btn-primary">Back</a></div> <br/>
     <div style="overflow:auto">
       <img style= "float: left; padding-right: 20px; height: 200px;"src=<%= product.carImage %>>
@@ -17,7 +18,8 @@
       <div>Transmission Type : <%= product.transmissionType %></div>
       <div>Price : <%= product.price %></div> <br>
       <div style="white-space: pre-line;  margin-top: 10px;"><%= product.description %></div> <br>
-      <div><a href="" class="btn btn-primary">Buy This Car!</a></div>
+      <div><a href="/order/<%= product.id %>" class="btn btn-primary">Buy This Car!</a></div>
     </div>
+
 </body>
 </html>
