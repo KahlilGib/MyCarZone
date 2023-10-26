@@ -12,18 +12,18 @@ router.post('/user-profile/edit');
 
 router.get('/product', Controllers.product); // halaman list product
 
-router.get('/product/add'); // menampilkan form untuk menambah product
-router.post('/product/add');
+router.get('/product/add', Controllers.addProductForm); // menampilkan form untuk menambah product
+router.post('/product/add', Controllers.createProduct);
 
 router.get('/product/:id', Controllers.productDetail); // halaman detail product
 
-router.get('/product/edit/:id'); // menampilkan form untuk mengedit product
-router.post('/product/edit/:id'); 
+router.get('/product/edit/:id', Controllers.showEditProductForm); // menampilkan form untuk mengedit product
+router.post('/product/edit/:id', Controllers.updateProduct); 
 
 router.get('/order/:idProduct'); // halaman untuk melihat barang apa saja yang ingin di beli
 
 router.get('/invoice/:id'); // halaman untuk melihat invoice
 
-router.get('/delete/:id'); //untuk menghapus product
+router.get('/product/delete/:id', Controllers.deleteProduct); //untuk menghapus product
 
 module.exports = router;

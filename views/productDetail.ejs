@@ -11,13 +11,13 @@
     <%- include('partials/_navbar') %> <br/>
     <div><a href="/product" class="btn btn-primary">Back</a></div> <br/>
     <div style="overflow:auto">
-      <img style= "float: left; height: 200px;"src=<%= product.carImage %>>
-      <div>Estimated Time : <%= product.name %> Minutes</div>
-      <div>Difficulty : <%= product.fuelType %></div>
-      <div>Author : <%= product.transmissionType %></div>
-      <div>Created Date : <%= product.price %></div>
-      <div style="white-space: pre-line; margin-top: 10px;"><%= product.description %></div>
-      <div><a href="" class="btn btn-primary">Buy</a></div>
+      <img style= "float: left; padding-right: 20px; height: 200px;"src=<%= product.carImage %>>
+      <div>Car : <%= product.name %> </div>
+      <div>Fuel Type : <%= product.fuelType %></div>
+      <div>Transmission Type : <%= product.transmissionType %></div>
+      <div>Price : <%= product.price %></div> <br>
+      <div style="white-space: pre-line;  margin-top: 10px;"><%= product.description %></div> <br>
+      <div><a href="" class="btn btn-primary">Buy This Car!</a></div>
     </div>
 </body>
 </html>
