@@ -307,6 +307,15 @@ class Controllers {
             res.send(error.message);
         }
     }
+
+    static logout(req, res) {
+        try {
+            res.redirect('/'); 
+        } catch (error) {
+            console.log(error);
+            res.send(error.message);
+        }
+    }
 }
 
 module.exports = Controllers

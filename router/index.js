@@ -3,7 +3,7 @@ const router = require('express').Router();
 
 router.get('/', Controllers.home);
 router.post('/', Controllers.postLogin) // halaman home untuk registrasi/login
-router.get('/logout'); // halaman home untuk logout
+router.get('/logout', Controllers.logout); // halaman home untuk logout
 
 router.get('/register', Controllers.register)
 router.post('/register', Controllers.postRegister)
